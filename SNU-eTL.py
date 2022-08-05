@@ -13,12 +13,12 @@ if __name__ == "__main__":
     url = input()
     
     media_count = 0
-    download(url + "media_" + str(media_count) + ".ts")
-    while os.path.getsize("media_" + str(media_count) + ".ts") != 0:
+    download(f"{url}media_{media_count}.ts")
+    while os.path.getsize(f"media_{media_count}.ts") != 0:
         os.system("copy /b *.ts media.ts")
-        os.remove("media_" + str(media_count) + ".ts")
+        os.remove(f"media_{media_count}.ts")
         media_count += 1
-        download(url + "media_" + str(media_count) + ".ts")
+        download(f"{url}media_{media_count}.ts")
     
-    os.remove("media_" + str(media_count) + ".ts")
+    os.remove(f"media_{media_count}.ts")
     print("Done")
